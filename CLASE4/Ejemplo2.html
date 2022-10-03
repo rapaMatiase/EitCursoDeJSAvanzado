@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        Cantidad items faltantes :
+        <span id="cantidadItemsFaltantes"></span>
+    </p>
+    <ul id="lista">
+
+    </ul>
+    <script>
+        let elUlLista = document.getElementById("lista")
+        let elSpanCantidadDeItemsFaltantes = document.getElementById("cantidadItemsFaltantes")
+
+        let arrayListaDeCompras = [
+            { id: "001", detail: "Latas de atun", state: "comprado" },
+            { id: "002", detail: "Cafe instantaneo", state: "falta" },
+            { id: "003", detail: "Papel A4", state: "falta" }
+        ]
+
+
+        function factoruIl(item) {
+            const { id, detail } = item
+
+            let elIlItem = document.createElement("li")
+            elIlItem.id = `li-${id}`
+
+            let elTextNodeDetail = document.createTextNode(detail)
+
+            elIlItem.appendChild(elTextNodeDetail)
+
+            elUlLista.appendChild(elIlItem)
+        }
+
+        const CantidadDeItemsFaltantes = () => {
+            let cantidad = arrayListaDeCompras.reduce((acumulador, item) => {
+                if (item.state == "falta") { return acumulador = acumulador + 1 }
+                else { return acumulador }
+            }, 0)
+            elSpanCantidadDeItemsFaltantes.appendChild(document.createTextNode(`${cantidad} tareas`))
+        }
+
+        arrayListaDeCompras.forEach((item) => {
+            factoruIl(item)
+        })
+
+        CantidadDeItemsFaltantes()
+    </script>
+</body>
+
+</html>

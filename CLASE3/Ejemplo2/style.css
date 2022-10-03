@@ -1,0 +1,13 @@
+ul{
+    list-style-type: none;
+}
+
+.item{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgb(24, 100, 100);
+}
+
+.item a{
+    text-decoration: none;
+    color: white;
+}

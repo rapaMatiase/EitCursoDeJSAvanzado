@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body id="padre" style="padding:20px ;">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Well done!</h4>
+        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+    </div>
+
+    <script>
+
+
+        function factoryAlert(){
+            //EL DIV
+            let elDiv = document.createElement("div")
+            elDiv.classList.add("alert")
+            elDiv.classList.add("alert-success")
+
+            //h4
+            let elH4 = document.createElement("h4")
+            elH4.classList.add("alert-heading")
+            let textNodeH4 = document.createTextNode("Titulo")
+            elH4.appendChild(textNodeH4)
+            elDiv.appendChild(elH4)
+
+            //eL P
+            let elP = document.createElement("p")
+            let textNodeP = document.createTextNode("Texto cualqueira")
+            elP.appendChild(textNodeP)
+            elDiv.appendChild(elP)
+
+            //LO INSERTO EN BODY
+            document.getElementById("padre").appendChild(elDiv)
+        }
+    </script>
+</body>
+
+</html>

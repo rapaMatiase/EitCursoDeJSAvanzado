@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul id="lista">
+
+    </ul>
+    <script>
+        let elUlLista = document.getElementById("lista")
+
+        let arrayListaDeCompras = [
+            {id : "001", detail : "Latas de atun"},
+            {id : "002", detail : "Cafe instantaneo"},
+            {id : "003", detail: "Papel A4"}
+        ]
+
+
+        function factoruIl(item){
+            const {id, detail} = item
+
+            let elIlItem = document.createElement("li")
+            elIlItem.id = `li-${id}`
+
+            let elTextNodeDetail = document.createTextNode(detail)
+
+            elIlItem.appendChild(elTextNodeDetail)
+
+            elUlLista.appendChild(elIlItem)
+        }
+
+        arrayListaDeCompras.forEach((item)=>{
+            factoruIl(item)
+        })
+    </script>
+</body>
+</html>

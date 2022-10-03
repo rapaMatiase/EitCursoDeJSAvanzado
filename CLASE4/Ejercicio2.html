@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+    <p>
+        Cantidad productos Frizados 
+        <span id="cantiadadProductosFrizados"></span>
+    </p>
+
+    <p>
+        Cantidad productos Higinie
+        <span id="cantiadadProductosHiginie"></span>
+    </p>
+
+    <table class="table table-dark">
+        <tbody id="table">
+            <tr>
+                <th>Detalle</th>
+                <th>Precio</th>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <script>
+
+        let elSpanCantiadadProductosFrizados = document.getElementById("cantiadadProductosFrizados")
+        let elSpanCantiadadProductosHiginie = document.getElementById("cantiadadProductosHiginie")
+
+        let elTbodyTable = document.getElementById("table")
+        //EJERCICIO TIKCKET DE COMPRAS
+        const json = [
+            { id: 001,categoria : "Frizados", detail: "Pollo congelado", price: 700 },
+            { id: 002,categoria : "Enlatados", detail: "Lata de Atun", price: 200 },
+            { id: 003,categoria : "Higinie", detail: "Pepel higinico", price: 750 },
+            { id: 004,categoria : "Higinie", detail: "Shampoo", price: 350 },
+            { id: 005,categoria : "Bebidas", detail: "Coca cola", price: 240 },
+        ]
+
+        /* Insertar cada Json dentro de la table en una fila.
+            Recordamos que una fila en la tabla esta conformada por un TR que hace de fila y un TD dentro por cada celda en al fila.
+        */
+
+        const contarCatidadDeProductosFrizados = () => {
+            let cantidad = json.reduce((acumulador, item)=>{
+                if(item.categoria == "Frizados"){return acumulador = acumulador + 1}
+                else {return acumulador}
+            }, 0)
+            console.log(cantidad)
+            elSpanCantiadadProductosFrizados.appendChild(document.createTextNode(`${cantidad}`))
+        }
+
+        const contarCatidadDeProductosHiginie = () => {
+            let cantidad = json.reduce((acumulador, item)=>{
+                if(item.categoria == "Higinie"){return acumulador = acumulador + 1}
+                else {return acumulador}
+            }, 0)
+            console.log(cantidad)
+            elSpanCantiadadProductosHiginie.appendChild(document.createTextNode(`${cantidad}`))
+        }
+
+
+        function factoryTr(item){
+            const {id, detail, price} = item
+
+            let elTdDetail = document.createElement("td")
+            let elTextNodeDetail = document.createTextNode(detail)
+            elTdDetail.appendChild(elTextNodeDetail)
+
+            let elTdPrice = document.createElement("td")
+            let elTextNodePrice = document.createTextNode(`$${price}`)
+            elTdPrice.appendChild(elTextNodePrice)
+
+            let elTr = document.createElement("tr")
+            elTr.id = `row-${id}`
+
+            elTr.appendChild(elTdDetail)
+            elTr.appendChild(elTdPrice)
+
+            elTbodyTable.appendChild(elTr)
+
+        }
+
+        json.forEach((item)=>{
+            factoryTr(item)
+        })
+        contarCatidadDeProductosFrizados()
+        contarCatidadDeProductosHiginie()
+    </script>
+</body>
+
+</html>

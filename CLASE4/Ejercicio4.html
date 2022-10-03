@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section{
+            display: grid;
+            grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+            height: 300px;
+            width: 300px;
+        }
+        section div{
+            border: solid orange 2px;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <section id="sodoku"></section>
+
+    <script>
+
+        let matris = [
+            [1,2,3],
+            [3,3,2],
+            [4,3,2]
+        ]
+
+        /* 
+        Crear una funcion que recorra la matris y por cada elemento cree un div con el valor en la posicion y lo inserte en el section de id sodoku.
+        */
+        let eLSectionSodoku = document.getElementById("sodoku")
+        function factoryDivClasica(){
+            for(let i = 0 ; i < matris.length ; i++){
+                for(let j = 0 ; j < matris.length ; j++){
+                    let elDiv = document.createElement("div")
+                    let elTextNode = document.createTextNode(matris[i][j])
+                    elDiv.appendChild(elTextNode)
+                    eLSectionSodoku.append(elDiv)
+                }
+            }
+        }
+
+        factoryDivClasica()
+    </script>
+</body>
+</html>

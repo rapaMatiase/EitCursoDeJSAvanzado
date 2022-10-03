@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section{
+            display: grid;
+            grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+            height: 300px;
+            width: 300px;
+        }
+        section div{
+            border: solid orange 2px;
+        }
+
+        .enable-false{
+            background-color: gainsboro;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <section id="sodoku"></section>
+
+    <script>
+
+        let matris = [
+            [{value : 1, enable : true},{ value :2, enable : false},{value : 3, enable : true}],
+            [{value : 3, enable : true},{ value :3, enable : true},{value : 2, enable :false }],
+            [{value : 4, enable : true},{ value :3, enable : false},{value : 2, enable : true}]
+        ]
+
+        /* 
+Modificar el codigo para que funciona con la nueva matris y ademas que si el atributo enable es false, se le agregue la calse enable-false.        */
+        let eLSectionSodoku = document.getElementById("sodoku")
+        function factoryDivClasica(){
+            for(let i = 0 ; i < matris.length ; i++){
+                for(let j = 0 ; j < matris.length ; j++){
+                    let elDiv = document.createElement("div")
+                    let elTextNode = document.createTextNode(matris[i][j].value)
+                    elDiv.appendChild(elTextNode)
+
+                    if(matris[i][j].enable == false){
+                        elDiv.classList.add("enable-false")
+                    }
+
+                    eLSectionSodoku.append(elDiv)
+                }
+            }
+        }
+
+        factoryDivClasica()
+    </script>
+</body>
+</html>

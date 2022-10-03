@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body id="padre">
+    <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+        </ul>
+    </div>
+    <script>
+
+        const factoryIl = (texto) => {
+            let elIl = document.createElement("li")
+            elIl.classList.add("list-group-item")
+            //CREO UN TEXTO
+            let textoNode = document.createTextNode(texto)
+            elIl.appendChild(textoNode)
+            return elIl
+        }
+
+        function factoryCard(texto){
+            //EL DIV
+            let elDiv = document.createElement("div")
+            elDiv.classList.add("card")
+            //EL UL
+            let elUl = document.createElement("ul")
+            elUl.classList.add("list-group")
+            elUl.classList.add("list-group-flush")
+            elDiv.appendChild(elUl)
+            //EL LI
+            let elIl = factoryIl(texto)
+            elUl.appendChild(elIl)
+            //LO INSERTO EN BODY
+            document.getElementById("padre").appendChild(elDiv)
+        }
+    </script>
+</body>
+
+</html>

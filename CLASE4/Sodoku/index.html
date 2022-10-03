@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        section{
+            display: grid;
+            grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+            height: 300px;
+            width: 300px;
+        }
+        section div{
+            height: 100px;
+            width: 100px;
+            border : 2px solid orange;
+        }
+
+        .sombras{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <section id="sodoku">
+     
+    </section>
+    <span id="desboard"></span>
+
+    <script src="Casilla/CasillaModel.js"></script>
+    <script src="Casilla/CasillaModeloVista.js"></script>
+    <script src="Casilla/Observer.js"></script>
+    <script src="SodokuModelo.js"></script>
+    <script src="SodokuModelView.js"></script>
+    <script src="Casilla/CasillFactoryModel.js"></script>
+    <script src="Casilla/CasillaFactoryModeloVista.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
